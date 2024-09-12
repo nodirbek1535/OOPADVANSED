@@ -85,7 +85,7 @@ namespace BankSystem.Classes
                 Console.WriteLine("iltimos amalni bajarish uchun parolingizni kiriting");
                 if(Mijozparoli==Console.ReadLine())
                 {
-                    Console.WriteLine($"Sizning hisobingiz:{Mijozhisobbalansi}");
+                    Console.WriteLine($"Sizning hisobingiz:{(Mijozhisobbalansi.ToString())}");
                     a=false;
                 }
                 else
@@ -104,7 +104,7 @@ namespace BankSystem.Classes
         public void  pulyechish()
         {
             Console.WriteLine("Qancha miqdorda pul yechmoqchisiz:");
-            int yechilayotganpul=int.Parse(Console.ReadLine());
+            double yechilayotganpul=double.Parse(Console.ReadLine());
             if(Mijozhisobbalansi>=yechilayotganpul)
             {   
                 bool a=true;

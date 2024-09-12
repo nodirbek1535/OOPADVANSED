@@ -14,7 +14,7 @@ while (true)
         Console.WriteLine($"Tabriklaymiz siz bank mijoziga aylandingiz sizning ismingiz loginingiz:{user1} , hisob raqamingiz: {hisobraqam}");
         Console.WriteLine("Yuqoridagi malumotlarni yodingizdan chiqarmang sizni hisobingizni himoyalash uchun parol yarating:");
         string user1password=Console.ReadLine();
-        Bank mijoz1=new Bank(hisobraqam,user1,0);
+        Bank mijoz1=new Bank(hisobraqam,user1,0,user1password);
         Console.WriteLine("Iltimos parolingizni va hisob raqamingizni yodingizda saqlang(ismingiz login vazifasini bajaradi)");
         mijoz1.tizimgakirish();
         Console.WriteLine("Sizning hisobingiz 0 USD ga teng iltimos hisobingizni malum miqdorga toldiring");
@@ -64,11 +64,12 @@ while (true)
     }
     else if(login1=="xodim")
     {   bool boling=true;
-        while(boling)
-        {
             Admin.Classes.Admin admin=new Admin.Classes.Admin();
             Bankxodimi bankxodimlari=new Bankxodimi();
             bankxodimlari.kirishtizimi();
+        while(boling)
+        {
+            
             Console.WriteLine("mijozlarni korish uchun 1 ni kiriting");
             Console.WriteLine("yangi faydalanuvchii qoshish uchun 2 ni kiritng");
             Console.WriteLine("foydalanuvchilarrni ochirish uchun 3 ni kiriting");
