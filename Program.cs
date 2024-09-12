@@ -1,6 +1,7 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 using BankSystem.Classes;
-using OOPADVANSED.Classes;
+using Bankxodimlari.Classes;
+using Admin.Classes;
 while (true)
 {
     Console.WriteLine("Assalomu alekum NNN bankning dasturiga xush kelibsiz aytingchi siz mijozmisiz yoki xodim");
@@ -13,7 +14,7 @@ while (true)
         Console.WriteLine($"Tabriklaymiz siz bank mijoziga aylandingiz sizning ismingiz loginingiz:{user1} , hisob raqamingiz: {hisobraqam}");
         Console.WriteLine("Yuqoridagi malumotlarni yodingizdan chiqarmang sizni hisobingizni himoyalash uchun parol yarating:");
         string user1password=Console.ReadLine();
-        Bank mijoz1=new Bank(user1,user1password,0);
+        Bank mijoz1=new Bank(hisobraqam,user1,0);
         Console.WriteLine("Iltimos parolingizni va hisob raqamingizni yodingizda saqlang(ismingiz login vazifasini bajaradi)");
         mijoz1.tizimgakirish();
         Console.WriteLine("Sizning hisobingiz 0 USD ga teng iltimos hisobingizni malum miqdorga toldiring");
@@ -62,24 +63,34 @@ while (true)
         }
     }
     else if(login1=="xodim")
-    {
-        Bankxodimlari bankxodimlari=new Bankxodimlari();
-        bankxodimlari.kirishtizimi();
-        Console.WriteLine("mijozlarni korish uchun 1 ni kiriting");
-        Console.WriteLine("yangi faydalanuvchii qoshish uchun 2 ni kiritng");
-        Console.WriteLine("foydalanuvchilarrni ochirish uchun 3 ni kiriting");
-        int sddfcd=int.Parse(Console.ReadLine());
-        switch(sddfcd)
+    {   bool boling=true;
+        while(boling)
         {
-            case 1:
-            
-            break;
+            Admin.Classes.Admin admin=new Admin.Classes.Admin();
+            Bankxodimi bankxodimlari=new Bankxodimi();
+            bankxodimlari.kirishtizimi();
+            Console.WriteLine("mijozlarni korish uchun 1 ni kiriting");
+            Console.WriteLine("yangi faydalanuvchii qoshish uchun 2 ni kiritng");
+            Console.WriteLine("foydalanuvchilarrni ochirish uchun 3 ni kiriting");
+            Console.WriteLine("asosiy menuga qaytish uchun 4 ni kiriting");
+            int s=int.Parse(Console.ReadLine());
+            switch(s)
+            {
+                case 1:
+                    admin.Barchamijozlarnikorish();
+                break;
 
-            case 2:
-            break;
+                case 2:
+                    admin.Mijozqoshish();
+                break;
 
-            case 3:
-            break;
+                case 3:
+                    admin.Mijozochirish();
+                break;
+                case 4:
+                boling=false;
+                break;
+            }
         }
     }
     else{Console.WriteLine("iltimos togri bolimni tanlang");}

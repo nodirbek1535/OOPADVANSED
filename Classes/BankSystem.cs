@@ -1,5 +1,6 @@
 using System.Dynamic;
 using System.Security.Cryptography.X509Certificates;
+using Bankxodimlari.Classes;
 
 namespace BankSystem.Classes
 {
@@ -10,6 +11,21 @@ namespace BankSystem.Classes
         public double Mijozhisobbalansi{ get ; private set ;}
         public string Mijozparoli{ get ; private set ;}
 
+        public Bank(string hisobraqam, string mijozismi, double mijozhisobbalansi, string mijozparoli)
+        {
+            Hisobraqam=hisobraqam;
+            Mijozismi=mijozismi;
+            Mijozhisobbalansi=mijozhisobbalansi;
+            Mijozparoli=mijozparoli;
+        }
+
+
+        public Bank(string hisobraqam, string mijozismi, double mijozhisobbalansi)
+        {
+            Hisobraqam=hisobraqam;
+            Mijozismi=mijozismi;
+            Mijozhisobbalansi=mijozhisobbalansi;
+        }
 
 
         

@@ -1,8 +1,9 @@
 using System.Dynamic;
+using Admin.Classes;
 
 namespace Bankxodimlari.Classes
 {
-    public class Bankxodimlari
+    public class Bankxodimi
     {
         private string Xodimlogin="nodirbek";
         private string Xodimparol="n@dirbek1535";
